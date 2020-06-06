@@ -3,12 +3,16 @@
 this is a simple project with laravel api and jquery, the main function is to get covid19 data from a csv file manipulate it, and fetched with jquery.
 
 ### screenshoots
+top page where the data is displayed
 <img src="images/Capture1.PNG">
 <hr>
+buttom page, the countris fetched from the source are displayed here
 <img src="images/Capture2.PNG">
 <hr>
+search a country by name
 <img src="images/Capture3.PNG">
 <hr>
+data is fetch with jquery
 <img src="images/Capture4.PNG">
 <hr>
 
