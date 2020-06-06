@@ -42,6 +42,7 @@ class HomeController extends Controller
         $TotalConfirmed=null;
         $TotalDeaths=0;
         $TotalRecovered=0;
+        $lastUpdate="01-01-2020";
         function converttoint($string){
             return (int)(str_replace(",", ".", $string));
         }
@@ -49,12 +50,12 @@ class HomeController extends Controller
             $TotalConfirmed +=  converttoint($countrydata['Confirmed']) ;
             $TotalDeaths +=  converttoint($countrydata['Deaths']) ;
             $TotalRecovered +=  converttoint($countrydata['Recovered']) ;
+            //checking for last update
+            if($lastUpdate < $countrydata['Last_Update']) $lastUpdate=$countrydata['Last_Update'];
 
-        }/*
-        echo  'Confirmed : '.$TotalConfirmed.'<br>';
-        echo  'Deaths : '.$TotalDeaths.'<br>';
-        echo  'Recovered : '.$TotalRecovered.'<br>';*/
-        return ['Confirmed'=>$TotalConfirmed,'Deaths'=>$TotalDeaths,'Recovered'=>$TotalRecovered];
+        }
+
+        return ['Confirmed'=>$TotalConfirmed,'Deaths'=>$TotalDeaths,'Recovered'=>$TotalRecovered,'Last_Update'=>$lastUpdate];
 
     }
 

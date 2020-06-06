@@ -34,7 +34,7 @@
             #numbers{
                 font-weight: 600;
                 letter-spacing: .1rem;
-                margin-top: 15%;
+                margin-top: 8%;
             }
             #countires{
                 width: 70%;
@@ -51,9 +51,13 @@
                     <div id="numbers">
                         <ul class="list-group w-25 mx-auto">
                             <li class="list-group-item list-group-item-warning">Confirmed : <span id="Confirmed"></span></li>
-                            <li class="list-group-item list-group-item-danger">Deaths : <span id="Deaths" ></span></li>
+                            <br>
                             <li class="list-group-item list-group-item-success">Recovered : <span id="Recovered"></span></li>
+                            <br>
+                            <li class="list-group-item list-group-item-danger">Deaths : <span id="Deaths" ></span></li>
                         </ul>
+                        <br>
+                        <p > last update : <span id="Last_Update"></span></p>
                     </div>
                 </div>
 
@@ -79,7 +83,8 @@
 
                             $("#Confirmed").text(parseInt(data.Confirmed));
                             $("#Deaths").text(parseInt(data.Deaths));
-                            $("#Recovered").text(parseInt(data.Recovered));;
+                            $("#Recovered").text(parseInt(data.Recovered));
+                            $("#Last_Update").text(data.Last_Update);
                         });
                     });
 
@@ -109,6 +114,10 @@
                 // on click
                 function countryData(btn) {
 
+                    // if country is clicked from search
+                        $('#search').val('');
+                        $('.country').show();
+
                     // get a specific country data
 
                     var countryName= $(btn).text();
@@ -122,6 +131,7 @@
                         $("#Confirmed").text(parseInt(data.Confirmed));
                         $("#Deaths").text(parseInt(data.Deaths));
                         $("#Recovered").text(parseInt(data.Recovered));
+                        $("#Last_Update").text(data.Last_Update);
 
                     });
                 }
